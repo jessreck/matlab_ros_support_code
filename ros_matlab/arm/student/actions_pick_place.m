@@ -6,7 +6,7 @@ clear
 rosshutdown;
 pause(2);       
 
-%% Set IP address for master and node:
+%% Set the address for master and node:
 masterHostIP = "192.168.56.101";
 nodeHostIP = "192.168.56.1";
 rosinit(masterHostIP, 11311, "NodeHost",nodeHostIP);
@@ -79,7 +79,7 @@ if strcmp(type,'gazebo')
         %% 05.1 Get Model Pose
         
         % 05.1.1 Get Model Name
-        model_name = models.ModelNames{23+randi([7,8])};
+        model_name = models.ModelNames{27+i};
 
         % 05.1.2 Get Model pose
         fprintf('Picking up model: %s \n',model_name);
@@ -106,7 +106,7 @@ if strcmp(type,'gazebo')
         if ~ret     % If no errors
 
             % Move to ready position
-            ret = moveToQ('qr');
+            ret = moveToQ('qr',optns);
         end
 
         % Control loop
